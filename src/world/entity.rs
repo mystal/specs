@@ -224,7 +224,6 @@ pub struct Entity(Index, Generation);
 
 impl Entity {
     /// Creates a new entity (externally from ECS).
-    #[cfg(test)]
     pub fn new(index: Index, gen: Generation) -> Self {
         Self(index, gen)
     }
@@ -387,7 +386,6 @@ impl Generation {
         Generation(unsafe { NonZeroI32::new_unchecked(1) })
     }
 
-    #[cfg(test)]
     pub fn new(v: i32) -> Self {
         Generation(NonZeroI32::new(v).expect("generation id must be non-zero"))
     }
